@@ -16,7 +16,7 @@ services:
     container_name: ngrok-tunnel
     command: http ngrok-proxy:80
     environment:
-      - NGROK_AUTHTOKEN=34TSrtOfjSAIce8p098xd1lVA6N_69EYamNzRu1AMwAXhNVLA
+      - NGROK_AUTHTOKEN=${YOUR_NGROK_AUTHTOKEN}
     depends_on:
       - ngrok-proxy
     networks:
