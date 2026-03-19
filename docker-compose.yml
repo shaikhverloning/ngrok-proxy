@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  ngrok-proxy:
+    image: nginx:alpine
+    container_name: ngrok-nginx-proxy
+    ports:
+      - "8081:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - verloning-network
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: ngrok-tunnel
+    command: http ngrok-proxy:80
+    environment:
+      - NGROK_AUTHTOKEN=34TSrtOfjSAIce8p098xd1lVA6N_69EYamNzRu1AMwAXhNVLA
+    depends_on:
+      - ngrok-proxy
+    networks:
+      - verloning-network
+
+networks:
+  verloning-network:
+    external: true
