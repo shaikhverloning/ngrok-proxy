@@ -1,4 +1,4 @@
-# 🚀 Verloning Local Setup (Docker + Ngrok)
+# 🚀 Local Infrastructure Setup with Ngrok
 
 This project runs the full local environment and exposes it publicly using ngrok via Docker.
 
@@ -36,7 +36,7 @@ docker network ls
 
 If not present:
 
-docker network create verloning-network
+docker network create $network_name
 
 ---
 
